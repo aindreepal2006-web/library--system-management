@@ -1,1 +1,133 @@
+import java.util.*;
 
+// ---------------- Book Class ----------------
+class Book {
+    int bookID;
+    String title;
+    String author;
+    String category;
+    int quantity;
+
+    public Book(int bookID, String title, String author, String category, int quantity) {
+        this.bookID = bookID;
+        this.title = title;
+        this.author = author;
+        this.category = category;
+        this.quantity = quantity;
+    }
+
+    public void getDetails() {
+        System.out.println("Book ID: " + bookID);
+        System.out.println("Title: " + title);
+        System.out.println("Author: " + author);
+        System.out.println("Category: " + category);
+        System.out.println("Quantity: " + quantity);
+    }
+}
+
+// ---------------- Student Class ----------------
+class Student {
+    int studentID;
+    String name;
+    String contact;
+
+    public Student(int studentID, String name, String contact) {
+        this.studentID = studentID;
+        this.name = name;
+        this.contact = contact;
+    }
+
+    public void borrowBook(Book book) {
+        if (book.quantity > 0) {
+            book.quantity--;
+            System.out.println(name + " borrowed " + book.title);
+        } else {
+            System.out.println("Book not available");
+        }
+    }
+
+    public void returnBook(Book book) {
+        book.quantity++;
+        System.out.println(name + " returned " + book.title);
+    }
+}
+
+// ---------------- Transaction Class ----------------
+class Transaction {
+    int transactionID;
+    String issueDate;
+    String returnDate;
+    double fine;
+
+    public Transaction(int transactionID, String issueDate, String returnDate) {
+        this.transactionID = transactionID;
+        this.issueDate = issueDate;
+        this.returnDate = returnDate;
+        this.fine = 0;
+    }
+
+    public void calculateFine(int daysLate) {
+        fine = daysLate * 5; // ₹5 per day
+        System.out.println("Fine: " + fine);
+    }
+}
+
+// ---------------- Library Class ----------------
+class Library {
+    String name;
+    String address;
+
+    ArrayList<Book> books = new ArrayList<>();
+    ArrayList<Student> students = new ArrayList<>();
+
+    public Library(String name, String address) {
+        this.name = name;
+        this.address = address;
+    }
+
+    public void addBook(Book book) {
+        books.add(book);
+        System.out.println("Book added: " + book.title);
+    }
+
+    public void removeBook(Book book) {
+        books.remove(book);
+        System.out.println("Book removed: " + book.title);
+    }
+
+    public void registerStudent(Student student) {
+        students.add(student);
+        System.out.println("Student registered: " + student.name);
+    }
+
+    public void issueBook(Student student, Book book) {
+        student.borrowBook(book);
+    }
+
+    public void returnBook(Student student, Book book) {
+        student.returnBook(book);
+    }
+}
+
+// ---------------- Main Class ----------------
+public class Main {
+    public static void main(String[] args) {
+
+        Library lib = new Library("City Library", "Main Road");
+
+        Book b1 = new Book(1, "Java Basics", "James Gosling", "Programming", 5);
+        Student s1 = new Student(101, "Aindree", "9876543210");
+
+        lib.addBook(b1);
+        lib.registerStudent(s1);
+
+        lib.issueBook(s1, b1);
+        lib.returnBook(s1, b1);
+
+        b1.getDetails();
+
+        // Transaction Example
+        Transaction t1 = new Transaction(1, "01-03-2026", "10-03-2026");
+        t1.calculateFine(2); // 2 days late
+    }
+}
