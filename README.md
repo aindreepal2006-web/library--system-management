@@ -108,6 +108,8 @@ Layer:                 Description:                                             
 Model        Handles data and core logic of the system.                              Manage books, students, transactions.
 View       Provides userinterface (menu-driven / display output).                      Show options and results to user.
 Controller       Controller Acts as a bridge between Model and View                                 Process input and control system flow
+
+
 +-----------------+       1      *       +----------------+
 |     Library     |----------------------|      Book      |
 +-----------------+                      +----------------+
