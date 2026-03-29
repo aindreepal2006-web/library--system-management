@@ -44,18 +44,31 @@ Easy navigation options
  Purpose:
 Makes system user-friendly
 Simplifies operations
-Modular Design (OOP Based)
+Modular Design (OOP Based):
 System is divided into multiple classes.
 Features:
 Separate classes for Book, Student, Library
 Reusable and maintainable code
 Purpose:
 Easy to update and expand
-
-- 
-- 
-
----
+Data Validation & Error Handling:
+ Ensures system reliability.
+ Functions:
+Prevent issuing unavailable books
+Avoid duplicate student IDs
+Handle invalid inputs
+ Purpose:
+Reduces system errors
+Improves data integrity 
+Record Tracking System:
+ Maintains all transaction history.
+Functions:
+Track issued books
+View overdue books
+Maintain logs of activities
+ Purpose:
+Helps librarian monitor system usage
+Provides accountability
 
 ## OOP Concepts Used
 1.Exception Handling
@@ -111,7 +124,7 @@ javac Main.java
  Run:
 java Main
  One-Line Summary
-Install Java → Open project → Compile → Run Main.java.---
+Install Java → Open project → Compile → Run Main.java.
 
 ## Git Discipline Notes
 Git discipline ensures clean, regular, and meaningful commits representing each development step. Follow these rules: commit after completing each feature, write clear messages, avoid committing all code at once, maintain proper project structure, and include a README.md and .gitignore.
