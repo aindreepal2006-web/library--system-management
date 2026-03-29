@@ -1,0 +1,25 @@
++-----------------+       1      *       +----------------+
+|     Library     |----------------------|      Book      |
++-----------------+                      +----------------+
+| -books: List<Book>|                    | -bookID: int   |
+| -students: List<Student>|              | -title: String |
++-----------------+                      | -author: String|
+| +addBook()      |                      | -availability: boolean |
+| +removeBook()   |                      +----------------+
+| +issueBook()    |
+| +returnBook()   |
++-----------------+
+        |
+        | 1
+        |
+        * 
++-----------------+
+|    Student      |
++-----------------+
+| -studentID: int |
+| -name: String   |
+| -issuedBooks: List<Book> |
++-----------------+
+| +register()     |
+| +viewBooks()    |
++-----------------+
